@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joe Willy's Seafood House | Wappingers Falls, NY</title>
+  <meta name="description" content="Family-owned seafood restaurant in Wappingers Falls, NY. Fresh catch daily, raw bar, lobster, and more. Tue–Sat from 4 PM.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d1f38'/%3E%3Cg fill='none' stroke='%23c44a2b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='16' cy='8' r='3'/%3E%3Cline x1='16' y1='11' x2='16' y2='16'/%3E%3Cpath d='M9 16 Q16 11 23 16'/%3E%3Cline x1='16' y1='16' x2='16' y2='26'/%3E%3Cpath d='M11 23 Q16 26 21 23'/%3E%3C/g%3E%3C/svg%3E">
+
+  <!-- Social Preview (Open Graph) -->
+  <meta property="og:title" content="Joe Willy's Seafood House | Wappingers Falls, NY">
+  <meta property="og:description" content="Fresh seafood, family owned &amp; operated. Happy Hour daily 4–6 PM. Tue–Sat from 4 PM. Westside Plaza, Wappingers Falls, NY.">
+  <meta property="og:image" content="brand_assets/social_preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="brand_assets/social_preview.jpg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Josefin+Sans:wght@300;400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy:       '#1e3d6e',
+            'navy-deep':'#0d1f38',
+            rust:       '#c44a2b',
+            sky:        '#5ab4d4',
+            cream:      '#f5e3bc',
+            'cream-lt': '#fdf8ef',
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'Georgia', 'serif'],
+            label:   ['"Josefin Sans"', 'sans-serif'],
+            body:    ['"Lora"', 'Georgia', 'serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; }
+    body { font-family: 'Lora', Georgia, serif; background: #fdf8ef; color: #1a2c40; overflow-x: hidden; }
+
+    :root {
+      --navy:      #1e3d6e;
+      --navy-deep: #0d1f38;
+      --rust:      #c44a2b;
+      --sky:       #5ab4d4;
+      --cream:     #f5e3bc;
+      --cream-lt:  #fdf8ef;
+    }
+
+    /* ── Nav ── */
+    #main-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+    }
+    #main-nav.scrolled {
+      background: rgba(13, 31, 56, 0.97);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 2px 32px rgba(0,0,0,0.45);
+    }
+    .nav-link {
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 600; font-size: 0.7rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(253,248,239,0.8);
+      position: relative; padding-bottom: 3px;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 0; height: 2px; background: var(--rust);
+      transition: width 0.25s ease;
+    }
+    .nav-link:hover { color: #fff; }
+    .nav-link:hover::after { width: 100%; }
+
+    /* ── Hero ── */
+    #hero {
+      position: relative; min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('brand_assets/joe_willys_hero.png') center 30% / cover no-repeat;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg,
+        rgba(13,31,56,0.72) 0%,
+        rgba(13,31,56,0.42) 45%,
+        rgba(13,31,56,0.82) 100%);
+    }
+    /* Grain on hero */
+    .hero-grain {
+      position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: 0.35;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      background-size: 256px 256px;
+    }
+    .hero-content { position: relative; z-index: 3; }
+
+    /* ── Buttons ── */
+    .btn-rust {
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 700; font-size: 0.72rem; letter-spacing: 0.13em;
+      text-transform: uppercase; text-decoration: none;
+      background: var(--rust); color: #fff;
+      padding: 14px 34px; border-radius: 2px; border: none; cursor: pointer;
+      display: inline-block;
+      box-shadow: 0 4px 20px rgba(196,74,43,0.4);
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+    .btn-rust:hover { background: #a83920; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(196,74,43,0.5); }
+    .btn-rust:active { transform: translateY(0); }
+    .btn-outline {
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 700; font-size: 0.72rem; letter-spacing: 0.13em;
+      text-transform: uppercase; text-decoration: none;
+      background: transparent; color: rgba(253,248,239,0.9);
+      border: 2px solid rgba(253,248,239,0.55);
+      padding: 12px 32px; border-radius: 2px;
+      display: inline-block;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+    }
+    .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+    .btn-outline:active { transform: translateY(0); }
+    .btn-navy {
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 700; font-size: 0.72rem; letter-spacing: 0.13em;
+      text-transform: uppercase; text-decoration: none;
+      background: var(--navy-deep); color: #fdf8ef;
+      padding: 14px 34px; border-radius: 0 2px 2px 0; border: none; cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .btn-navy:hover { background: var(--navy); }
+
+    /* ── Section Eyebrow ── */
+    .eyebrow {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--rust);
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+    }
+    .eyebrow::before, .eyebrow::after {
+      content: ''; flex: none; width: 40px; height: 1px;
+      background: rgba(196,74,43,0.5);
+    }
+    .section-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700; letter-spacing: -0.02em; line-height: 1.12;
+    }
+
+    /* ── Info Bar ── */
+    .info-bar { background: #fdf8ef; border-top: 3px solid var(--rust); }
+    .info-item {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .info-divider {
+      width: 1px; height: 40px; background: rgba(90,180,212,0.2);
+      flex-shrink: 0;
+    }
+
+    /* ── Menu Cards ── */
+    .menu-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(90,180,212,0.14);
+      border-radius: 3px; overflow: hidden;
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
+    }
+    .menu-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 24px 48px rgba(0,0,0,0.45), 0 0 0 1px rgba(90,180,212,0.28);
+    }
+    .menu-card-img { position: relative; aspect-ratio: 4/3; overflow: hidden; }
+    .menu-card-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: brightness(0.82) saturate(0.85);
+      transition: transform 0.55s ease, filter 0.3s ease;
+    }
+    .menu-card:hover .menu-card-img img { transform: scale(1.06); filter: brightness(0.95) saturate(1.05); }
+    .menu-card-img .img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(13,31,56,0.5) 0%, transparent 55%);
+    }
+    .menu-badge {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.58rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--sky);
+      background: rgba(90,180,212,0.1);
+      border: 1px solid rgba(90,180,212,0.28);
+      padding: 3px 9px; border-radius: 2px; display: inline-block;
+    }
+
+    /* ── Gallery ── */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 260px 260px;
+      gap: 6px;
+    }
+    .gallery-item { position: relative; overflow: hidden; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .gallery-item::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(13,31,56,0.55), transparent 55%);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .gallery-item:hover img { transform: scale(1.06); }
+    .gallery-item:hover::after { opacity: 1; }
+    .gallery-item.tall { grid-row: span 2; }
+    @media (max-width: 767px) {
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+      .gallery-item.tall { grid-row: span 1; }
+    }
+
+    /* ── CTA Section ── */
+    .cta-section {
+      background: var(--rust); position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse at 15% 60%, rgba(220,90,50,0.45) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 40%, rgba(150,40,20,0.55) 0%, transparent 55%);
+    }
+    .email-input {
+      font-family: 'Lora', serif; font-size: 0.95rem;
+      background: rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.32);
+      color: #fff; padding: 14px 20px;
+      border-radius: 2px 0 0 2px; width: 100%; outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .email-input::placeholder { color: rgba(255,255,255,0.48); }
+    .email-input:focus { border-color: rgba(255,255,255,0.75); background: rgba(255,255,255,0.2); }
+
+    /* ── Review Cards ── */
+    .review-card {
+      background: #fff; border-radius: 3px;
+      box-shadow: 0 4px 28px rgba(30,61,110,0.09), 0 1px 4px rgba(30,61,110,0.06);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .review-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 48px rgba(30,61,110,0.15), 0 2px 8px rgba(30,61,110,0.08);
+    }
+
+    /* ── Wave Dividers ── */
+    .wave-top    { position: absolute; top: -1px; left: 0; right: 0; height: 56px; }
+    .wave-bottom { position: absolute; bottom: -1px; left: 0; right: 0; height: 56px; }
+    .wave-top    svg,
+    .wave-bottom svg { display: block; width: 100%; height: 100%; }
+
+    /* ── Fade-up animation ── */
+    .fade-up {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.22,1,0.36,1);
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.06s; }
+    .d2 { transition-delay: 0.13s; }
+    .d3 { transition-delay: 0.20s; }
+    .d4 { transition-delay: 0.27s; }
+    .d5 { transition-delay: 0.34s; }
+    .d6 { transition-delay: 0.41s; }
+
+    /* ── Mobile email form stack ── */
+    @media (max-width: 540px) {
+      .email-form { flex-direction: column !important; }
+      .email-input { border-radius: 2px !important; }
+      .btn-navy { border-radius: 2px !important; padding: 14px !important; }
+    }
+
+    /* ── Scroll pulse ── */
+    @keyframes scrollPulse {
+      0%,100% { opacity: 0.2; transform: scaleY(0.5); transform-origin: top; }
+      50%      { opacity: 0.7; transform: scaleY(1); }
+    }
+
+    /* ── Mobile menu ── */
+    #mobile-menu {
+      display: none; flex-direction: column; gap: 14px;
+      position: absolute; top: 100%; left: 0; right: 0;
+      background: rgba(13,31,56,0.97); padding: 28px 24px;
+      backdrop-filter: blur(16px);
+    }
+    #mobile-menu.open { display: flex; }
+
+    /* ── Footer links ── */
+    .footer-link {
+      font-family: 'Josefin Sans', sans-serif; font-size: 0.68rem;
+      font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(245,227,188,0.5); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-link:hover { color: var(--cream); }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════
+       NAV
+  ══════════════════════════════════════ -->
+  <nav id="main-nav">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="#hero" class="flex items-center gap-3 no-underline">
+        <img src="brand_assets/joe_willys_square_logo.png" alt="Joe Willy's" style="height:40px;width:40px;object-fit:contain;">
+        <div style="line-height:1;">
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#fdf8ef;">Joe Willy's</div>
+          <div style="font-family:'Josefin Sans',sans-serif;font-size:0.52rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(245,227,188,0.6);">Seafood House</div>
+        </div>
+      </a>
+
+      <!-- Desktop links -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#about"   class="nav-link">About</a>
+        <a href="#menu"    class="nav-link">Menu</a>
+        <a href="#reviews" class="nav-link">Reviews</a>
+        <a href="#contact" class="nav-link">Find Us</a>
+        <a href="#catchclub" class="btn-rust" style="padding:10px 22px;font-size:0.68rem;">Free Dessert</a>
+      </div>
+
+      <!-- Hamburger -->
+      <button id="hamburger" class="md:hidden text-cream-lt p-2" aria-label="Open menu" style="color:#fdf8ef;background:none;border:none;cursor:pointer;">
+        <svg id="ham-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="2" y1="5"  x2="20" y2="5"/>
+          <line x1="2" y1="11" x2="20" y2="11"/>
+          <line x1="2" y1="17" x2="20" y2="17"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu">
+      <a href="#about"     class="nav-link" style="font-size:0.9rem;">About</a>
+      <a href="#menu"      class="nav-link" style="font-size:0.9rem;">Menu</a>
+      <a href="#reviews"   class="nav-link" style="font-size:0.9rem;">Reviews</a>
+      <a href="#contact"   class="nav-link" style="font-size:0.9rem;">Find Us</a>
+      <a href="#catchclub" class="btn-rust" style="text-align:center;margin-top:6px;">Claim Free Dessert</a>
+    </div>
+  </nav>
+
+
+  <!-- ══════════════════════════════════════
+       HERO
+  ══════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <!-- Stronger gradient at bottom so CTAs are readable, lighter at top to show the image -->
+    <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(13,31,56,0.95) 0%, rgba(13,31,56,0.45) 40%, rgba(13,31,56,0.1) 100%);"></div>
+    <div class="hero-grain"></div>
+
+    <!-- Bottom-anchored content — lets the branded image breathe -->
+    <div style="position:absolute;bottom:0;left:0;right:0;z-index:3;padding:0 40px 56px;" class="hero-bottom">
+      <div style="max-width:1280px;margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:20px;">
+
+        <!-- Left: tagline + CTAs -->
+        <div>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+            <div style="height:1px;width:28px;background:rgba(90,180,212,0.7);"></div>
+            <span style="font-family:'Josefin Sans',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#5ab4d4;">Wappingers Falls, NY &nbsp;·&nbsp; Est. 2008</span>
+          </div>
+          <p class="hero-tagline" style="font-family:'Playfair Display',serif;font-size:clamp(1rem,2.2vw,1.3rem);font-style:italic;color:#f5e3bc;margin-bottom:20px;max-width:500px;line-height:1.55;">
+            "Enjoy the Catch!" — Fresh seafood, family owned &amp; operated, serving the Hudson Valley since 2008.
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;">
+            <a href="#menu" class="btn-rust">View Our Menu</a>
+            <a href="brand_assets/joe_willys_menu.pdf" target="_blank" class="btn-outline">Full Menu PDF</a>
+          </div>
+        </div>
+
+        <!-- Right: scroll cue -->
+        <div style="display:flex;flex-direction:column;align-items:center;gap:5px;padding-bottom:4px;">
+          <span style="font-family:'Josefin Sans',sans-serif;font-size:0.55rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(253,248,239,0.35);">Scroll</span>
+          <div style="width:1px;height:32px;background:rgba(253,248,239,0.28);animation:scrollPulse 2.2s ease infinite;"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <style>
+    @media (max-width: 640px) {
+      #hero { min-height: 82vh; }
+      .hero-bg { background-image: url('brand_assets/mobile_hero_2.png'); background-size: 100% auto; background-position: center top; background-color: #0d1f38; }
+      .hero-bottom { padding: 0 20px 36px !important; }
+      .hero-bottom > div { flex-direction: column; align-items: flex-start; }
+      .hero-tagline { display: none !important; }
+    }
+  </style>
+
+
+  <!-- ══════════════════════════════════════
+       INFO BAR
+  ══════════════════════════════════════ -->
+  <div class="info-bar" style="padding:18px 0;">
+    <div style="max-width:1100px;margin:0 auto;padding:0 24px;">
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:20px 40px;">
+
+        <div class="info-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c44a2b" stroke-width="1.5" style="flex-shrink:0;">
+            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+          </svg>
+          <div>
+            <div style="font-family:'Josefin Sans',sans-serif;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--rust);font-weight:700;">Hours</div>
+            <div style="font-family:'Lora',serif;font-size:0.83rem;color:var(--navy-deep);">Tue–Sat 4–9 PM &nbsp;·&nbsp; Sun 4–8:30 PM &nbsp;·&nbsp; Mon: Gone Fishin'</div>
+          </div>
+        </div>
+
+        <div class="info-divider hidden sm:block" style="background:rgba(30,61,110,0.15);"></div>
+
+        <div class="info-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c44a2b" stroke-width="1.5" style="flex-shrink:0;">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+          <div>
+            <div style="font-family:'Josefin Sans',sans-serif;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--rust);font-weight:700;">Location</div>
+            <div style="font-family:'Lora',serif;font-size:0.83rem;color:var(--navy-deep);">1817 South Rd (Rt. 9), Wappingers Falls, NY</div>
+          </div>
+        </div>
+
+        <div class="info-divider hidden sm:block" style="background:rgba(30,61,110,0.15);"></div>
+
+        <div class="info-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c44a2b" stroke-width="1.5" style="flex-shrink:0;">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 012 1.1 2 2 0 014 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 7.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+          <div>
+            <div style="font-family:'Josefin Sans',sans-serif;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--rust);font-weight:700;">Reservations</div>
+            <a href="tel:8457650234" style="font-family:'Lora',serif;font-size:0.83rem;color:var(--navy-deep);text-decoration:none;">(845) 765-0234</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- About section moved below reviews -->
+
+
+  <!-- ══════════════════════════════════════
+       MENU HIGHLIGHTS
+  ══════════════════════════════════════ -->
+  <section id="menu" style="background:var(--navy-deep);padding:100px 0 120px;position:relative;overflow:hidden;">
+
+    <!-- Scattered fish skeleton watermarks -->
+    <div style="position:absolute;top:8%;right:3%;opacity:0.05;pointer-events:none;transform:rotate(22deg);">
+      <img src="brand_assets/fish_skeleton.png" alt="" style="height:160px;">
+    </div>
+    <div style="position:absolute;top:35%;left:1%;opacity:0.04;pointer-events:none;transform:rotate(-15deg) scaleX(-1);">
+      <img src="brand_assets/fish_skeleton.png" alt="" style="height:100px;">
+    </div>
+    <div style="position:absolute;bottom:18%;right:6%;opacity:0.045;pointer-events:none;transform:rotate(-8deg);">
+      <img src="brand_assets/fish_skeleton.png" alt="" style="height:130px;">
+    </div>
+    <div style="position:absolute;bottom:5%;left:4%;opacity:0.035;pointer-events:none;transform:rotate(40deg);">
+      <img src="brand_assets/fish_skeleton.png" alt="" style="height:80px;">
+    </div>
+
+    <div class="wave-top">
+      <svg viewBox="0 0 1440 56" preserveAspectRatio="none">
+        <path d="M0,0 C480,56 960,0 1440,56 L1440,0 Z" fill="#fdf8ef"/>
+      </svg>
+    </div>
+
+    <div style="max-width:1280px;margin:0 auto;padding:0 24px;padding-top:20px;">
+
+      <!-- Header -->
+      <div class="fade-up" style="text-align:center;margin-bottom:56px;">
+        <div class="eyebrow" style="margin-bottom:14px;">
+          <span>Highlights From the Kitchen</span>
+        </div>
+        <h2 class="section-title" style="font-size:clamp(2rem,4vw,3rem);color:#fdf8ef;">
+          What We're <span style="font-style:italic;color:#f5e3bc;">Serving</span>
+        </h2>
+      </div>
+
+      <!-- 6-card grid -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;" class="menu-grid">
+
+        <!-- 1: Lobster Roll -->
+        <div class="menu-card fade-up d1">
+          <div class="menu-card-img">
+            <img src="https://placehold.co/480x360/1a2f52/c8a96e?text=Lobster+Roll" alt="N.E. Lobster Roll">
+            <div class="img-overlay"></div>
+          </div>
+          <div style="padding:18px 22px 22px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+              <span class="menu-badge">Hand Helds</span>
+              <span style="font-family:'Josefin Sans',sans-serif;font-size:1.05rem;font-weight:700;color:#5ab4d4;">$29</span>
+            </div>
+            <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fdf8ef;margin-bottom:8px;">N.E. Lobster Roll</h3>
+            <p style="font-family:'Lora',serif;font-size:0.845rem;color:rgba(245,227,188,0.6);line-height:1.7;">Hot or cold, a true New England classic. Generous fresh lobster on a toasted roll, served with salad and steak fries.</p>
+          </div>
+        </div>
+
+        <!-- 2: Fried Calamari -->
+        <div class="menu-card fade-up d2">
+          <div class="menu-card-img">
+            <img src="https://placehold.co/480x360/1a2f52/c8a96e?text=Fried+Calamari" alt="Fried Calamari">
+            <div class="img-overlay"></div>
+          </div>
+          <div style="padding:18px 22px 22px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+              <span class="menu-badge">Appetizer</span>
+              <span style="font-family:'Josefin Sans',sans-serif;font-size:1.05rem;font-weight:700;color:#5ab4d4;">$18</span>
+            </div>
+            <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fdf8ef;margin-bottom:8px;">Fried Calamari</h3>
+            <p style="font-family:'Lora',serif;font-size:0.845rem;color:rgba(245,227,188,0.6);line-height:1.7;">Golden crispy rings — classic, buffalo, or BBQ (+$3). A table staple since the very first night we opened.</p>
+          </div>
+        </div>
+
+        <!-- 3: Pan Seared Scallops -->
+        <div class="menu-card fade-up d3">
+          <div class="menu-card-img">
+            <img src="https://placehold.co/480x360/1a2f52/c8a96e?text=Seared+Scallops" alt="Pan Seared Scallops">
+            <div class="img-overlay"></div>
+          </div>
+          <div style="padding:18px 22px 22px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+              <span class="menu-badge">Pasta Entrée</span>
+              <span style="font-family:'Josefin Sans',sans-serif;font-size:1.05rem;font-weight:700;color:#5ab4d4;">$34</span>
+            </div>
+            <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fdf8ef;margin-bottom:8px;">Pan Seared Scallops</h3>
+            <p style="font-family:'Lora',serif;font-size:0.845rem;color:rgba(245,227,188,0.6);line-height:1.7;">Seared in lobster sauce with tomatoes, wilted spinach &amp; parmesan over linguini. Unforgettable.</p>
+          </div>
+        </div>
+
+        <!-- 4: Twin Lobster Tails -->
+        <div class="menu-card fade-up d4">
+          <div class="menu-card-img">
+            <img src="https://placehold.co/480x360/1a2f52/c8a96e?text=Lobster+Tails" alt="Twin Cold Water Lobster Tails">
+            <div class="img-overlay"></div>
+          </div>
+          <div style="padding:18px 22px 22px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+              <span class="menu-badge">Sea Entrée</span>
+              <span style="font-family:'Josefin Sans',sans-serif;font-size:1.05rem;font-weight:700;color:#5ab4d4;">from $49</span>
+            </div>
+            <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fdf8ef;margin-bottom:8px;">Twin Lobster Tails</h3>
+            <p style="font-family:'Lora',serif;font-size:0.845rem;color:rgba(245,227,188,0.6);line-height:1.7;">Two cold-water lobster tails — broiled, stuffed with crabmeat, or panko-crusted. Includes salad &amp; side.</p>
+          </div>
+        </div>
+
+        <!-- 5: Crab Cake -->
+        <div class="menu-card fade-up d5">
+          <div class="menu-card-img">
+            <img src="https://placehold.co/480x360/1a2f52/c8a96e?text=Crab+Cake" alt="6oz Crab Cake">
+            <div class="img-overlay"></div>
+          </div>
+          <div style="padding:18px 22px 22px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+              <span class="menu-badge">Appetizer</span>
+              <span style="font-family:'Josefin Sans',sans-serif;font-size:1.05rem;font-weight:700;color:#5ab4d4;">$18</span>
+            </div>
+            <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fdf8ef;margin-bottom:8px;">6oz Crab Cake</h3>
+            <p style="font-family:'Lora',serif;font-size:0.845rem;color:rgba(245,227,188,0.6);line-height:1.7;">Fried golden, topped with sweet corn relish and house-made remoulade sauce. A crowd-pleasing classic.</p>
+          </div>
+        </div>
+
+        <!-- 6: Surf & Turf -->
+        <div class="menu-card fade-up d6">
+          <div class="menu-card-img">
+            <img src="https://placehold.co/480x360/1a2f52/c8a96e?text=Surf+%26+Turf" alt="Surf &amp; Turf">
+            <div class="img-overlay"></div>
+          </div>
+          <div style="padding:18px 22px 22px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+              <span class="menu-badge">Signature</span>
+              <span style="font-family:'Josefin Sans',sans-serif;font-size:1.05rem;font-weight:700;color:#5ab4d4;">$49</span>
+            </div>
+            <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fdf8ef;margin-bottom:8px;">Surf &amp; Turf</h3>
+            <p style="font-family:'Lora',serif;font-size:0.845rem;color:rgba(245,227,188,0.6);line-height:1.7;">8oz steak or half rack of ribs with shrimp, scallops, or lobster tail. Add crab stuffing +$7.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Full Menu CTA -->
+      <div class="fade-up" style="text-align:center;margin-top:52px;">
+        <a href="brand_assets/joe_willys_menu.pdf" target="_blank" class="btn-rust">See Full Menu</a>
+        <p style="font-family:'Josefin Sans',sans-serif;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,227,188,0.3);margin-top:10px;">Opens PDF in new tab</p>
+      </div>
+
+    </div>
+
+    <div class="wave-bottom">
+      <svg viewBox="0 0 1440 56" preserveAspectRatio="none">
+        <path d="M0,56 C480,0 960,56 1440,0 L1440,56 Z" fill="#fdf8ef"/>
+      </svg>
+    </div>
+
+    <style>
+      @media (max-width: 900px) { .menu-grid { grid-template-columns: repeat(2,1fr) !important; } }
+      @media (max-width: 540px) { .menu-grid { grid-template-columns: 1fr !important; } }
+    </style>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       SPECIALS
+  ══════════════════════════════════════ -->
+  <section style="background:#fdf8ef;padding:72px 0;position:relative;overflow:hidden;">
+    <div style="max-width:1120px;margin:0 auto;padding:0 24px;">
+
+      <div class="fade-up" style="text-align:center;margin-bottom:44px;">
+        <div class="eyebrow" style="margin-bottom:12px;"><span>Deals &amp; Promotions</span></div>
+        <h2 class="section-title" style="font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--navy);">
+          Weekly <span style="font-style:italic;color:var(--rust);">Specials</span>
+        </h2>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;" class="specials-grid">
+
+        <!-- Happy Hour -->
+        <div class="fade-up d1" style="background:var(--navy-deep);border-radius:3px;padding:32px 28px;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:-10px;right:-10px;opacity:0.06;pointer-events:none;transform:rotate(20deg);">
+            <img src="brand_assets/fish_skeleton.png" alt="" style="height:100px;">
+          </div>
+          <div style="width:44px;height:44px;background:rgba(196,74,43,0.15);border:1px solid rgba(196,74,43,0.3);border-radius:2px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c44a2b" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <div style="font-family:'Josefin Sans',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--rust);margin-bottom:8px;">Daily · 4 – 6 PM</div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:#fdf8ef;margin-bottom:12px;line-height:1.2;">Happy Hour<br><span style="font-style:italic;color:#f5e3bc;">at the Bar</span></h3>
+          <p style="font-family:'Lora',serif;font-size:0.875rem;color:rgba(245,227,188,0.6);line-height:1.7;">$2 off all appetizers and drinks every day during happy hour. Best way to start your evening.</p>
+        </div>
+
+        <!-- Wine Wednesdays -->
+        <div class="fade-up d2" style="background:var(--navy);border-radius:3px;padding:32px 28px;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:-10px;right:-10px;opacity:0.07;pointer-events:none;transform:rotate(-15deg) scaleX(-1);">
+            <img src="brand_assets/fish_skeleton.png" alt="" style="height:100px;">
+          </div>
+          <div style="width:44px;height:44px;background:rgba(90,180,212,0.12);border:1px solid rgba(90,180,212,0.25);border-radius:2px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5ab4d4" stroke-width="1.5">
+              <path d="M8 22h8M12 11v11M6 2h12l-2 9a4 4 0 01-8 0L6 2z"/>
+            </svg>
+          </div>
+          <div style="font-family:'Josefin Sans',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#5ab4d4;margin-bottom:8px;">Every Wednesday</div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:#fdf8ef;margin-bottom:12px;line-height:1.2;">Wine<br><span style="font-style:italic;color:#f5e3bc;">Wednesdays</span></h3>
+          <p style="font-family:'Lora',serif;font-size:0.875rem;color:rgba(245,227,188,0.6);line-height:1.7;">Half price on all wine bottles every Wednesday. The perfect mid-week excuse to treat yourself.</p>
+        </div>
+
+        <!-- Kids Eat Half Price -->
+        <div class="fade-up d3" style="background:var(--navy-deep);border-radius:3px;padding:32px 28px;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:-10px;right:-10px;opacity:0.06;pointer-events:none;transform:rotate(30deg);">
+            <img src="brand_assets/fish_skeleton.png" alt="" style="height:100px;">
+          </div>
+          <div style="width:44px;height:44px;background:rgba(196,74,43,0.15);border:1px solid rgba(196,74,43,0.3);border-radius:2px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c44a2b" stroke-width="1.5">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
+            </svg>
+          </div>
+          <div style="font-family:'Josefin Sans',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--rust);margin-bottom:8px;">Sun – Thu</div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:#fdf8ef;margin-bottom:12px;line-height:1.2;">Kids Eat<br><span style="font-style:italic;color:#f5e3bc;">Half Price</span></h3>
+          <p style="font-family:'Lora',serif;font-size:0.875rem;color:rgba(245,227,188,0.6);line-height:1.7;">Kids eat half price Sunday through Thursday with the purchase of one adult entrée. Great for family night out.</p>
+        </div>
+
+      </div>
+    </div>
+    <style>
+      @media (max-width: 900px) { .specials-grid { grid-template-columns: 1fr !important; } }
+      @media (min-width: 540px) and (max-width: 900px) { .specials-grid { grid-template-columns: 1fr 1fr !important; } }
+    </style>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       GALLERY
+  ══════════════════════════════════════ -->
+  <section style="background:#fdf8ef;padding:96px 0;position:relative;overflow:hidden;">
+    <div style="position:absolute;top:10%;right:-1%;opacity:0.08;pointer-events:none;transform:rotate(-30deg);">
+      <img src="brand_assets/fish_skeleton.png" alt="" style="height:90px;">
+    </div>
+    <div style="position:absolute;bottom:8%;left:-1%;opacity:0.07;pointer-events:none;transform:rotate(10deg) scaleX(-1);">
+      <img src="brand_assets/fish_skeleton.png" alt="" style="height:110px;">
+    </div>
+    <div style="max-width:1280px;margin:0 auto;padding:0 24px;">
+
+      <div class="fade-up" style="text-align:center;margin-bottom:40px;">
+        <div class="eyebrow" style="margin-bottom:12px;"><span>Inside the Shack</span></div>
+        <h2 class="section-title" style="font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--navy);">
+          The <span style="font-style:italic;color:var(--rust);">Atmosphere</span>
+        </h2>
+      </div>
+
+      <div class="gallery-grid fade-up">
+        <div class="gallery-item tall">
+          <img src="brand_assets/bar.jpg" alt="Joe Willy's full-service bar">
+        </div>
+        <div class="gallery-item">
+          <img src="brand_assets/diningroom.jpg" alt="Dining room">
+        </div>
+        <div class="gallery-item">
+          <img src="brand_assets/privatedining.jpg" alt="Private dining area">
+        </div>
+        <div class="gallery-item">
+          <img src="brand_assets/boothtable.jpg" alt="Booth seating">
+        </div>
+        <div class="gallery-item">
+          <img src="brand_assets/in_the_kitchen.png" alt="Fresh seafood prepared in the kitchen">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       PARTY ROOM CALLOUT
+  ══════════════════════════════════════ -->
+  <section style="background:var(--navy);padding:52px 0;position:relative;overflow:hidden;">
+    <!-- Fish skeleton watermarks -->
+    <div style="position:absolute;right:4%;top:50%;opacity:0.07;pointer-events:none;transform:translateY(-50%) rotate(15deg);">
+      <img src="brand_assets/fish_skeleton.png" alt="" style="height:110px;">
+    </div>
+    <div style="position:absolute;left:3%;top:50%;opacity:0.06;pointer-events:none;transform:translateY(-50%) rotate(-20deg) scaleX(-1);">
+      <img src="brand_assets/fish_skeleton.png" alt="" style="height:90px;">
+    </div>
+    <div style="max-width:1120px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:28px;position:relative;z-index:1;">
+      <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
+        <!-- Icon -->
+        <div style="flex-shrink:0;width:56px;height:56px;border:2px solid rgba(90,180,212,0.35);border-radius:2px;display:flex;align-items:center;justify-content:center;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5ab4d4" stroke-width="1.5">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+            <path d="M16 3.13a4 4 0 010 7.75"/>
+          </svg>
+        </div>
+        <div>
+          <div style="font-family:'Josefin Sans',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#5ab4d4;margin-bottom:4px;">Private Events &amp; Celebrations</div>
+          <div style="font-family:'Playfair Display',serif;font-size:clamp(1.1rem,2.2vw,1.5rem);font-weight:700;color:#fdf8ef;line-height:1.2;">
+            Party Room Available for Rental
+          </div>
+          <p style="font-family:'Lora',serif;font-size:0.875rem;color:rgba(245,227,188,0.6);margin-top:6px;line-height:1.6;">
+            Host your birthday, anniversary, or company dinner in our private dining room. Perfect for groups of all sizes.
+          </p>
+        </div>
+      </div>
+      <a href="tel:8457650234" class="btn-rust" style="white-space:nowrap;flex-shrink:0;">Call to Book</a>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       CATCH CLUB CTA
+  ══════════════════════════════════════ -->
+  <section id="catchclub" class="cta-section" style="padding:96px 0;">
+
+    <!-- Decorative fish skeletons -->
+    <div style="position:absolute;right:-30px;bottom:-10px;opacity:0.12;pointer-events:none;transform:rotate(-12deg);">
+      <img src="brand_assets/fish_skeleton.png" alt="" style="height:200px;object-fit:contain;">
+    </div>
+    <div style="position:absolute;left:-15px;top:-5px;opacity:0.1;pointer-events:none;transform:rotate(170deg) scaleX(-1);">
+      <img src="brand_assets/fish_skeleton.png" alt="" style="height:170px;object-fit:contain;">
+    </div>
+    <div style="position:absolute;right:18%;top:8%;opacity:0.07;pointer-events:none;transform:rotate(34deg);">
+      <img src="brand_assets/fish_skeleton.png" alt="" style="height:100px;object-fit:contain;">
+    </div>
+    <div style="position:absolute;left:14%;bottom:10%;opacity:0.08;pointer-events:none;transform:rotate(-22deg) scaleX(-1);">
+      <img src="brand_assets/fish_skeleton.png" alt="" style="height:120px;object-fit:contain;">
+    </div>
+    <div style="position:absolute;left:38%;top:-12px;opacity:0.06;pointer-events:none;transform:rotate(8deg);">
+      <img src="brand_assets/fish_skeleton.png" alt="" style="height:80px;object-fit:contain;">
+    </div>
+    <div style="position:absolute;right:6%;top:40%;opacity:0.05;pointer-events:none;transform:rotate(-45deg);">
+      <img src="brand_assets/fish_skeleton.png" alt="" style="height:90px;object-fit:contain;">
+    </div>
+
+    <div style="max-width:640px;margin:0 auto;padding:0 24px;text-align:center;position:relative;z-index:1;">
+
+      <!-- Badge -->
+      <div style="display:inline-block;background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.24);border-radius:100px;padding:6px 20px;margin-bottom:20px;">
+        <span style="font-family:'Josefin Sans',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;">Catch Club Members Only</span>
+      </div>
+
+      <h2 style="font-family:'Playfair Display',serif;font-weight:900;color:#fff;letter-spacing:-0.02em;line-height:1.08;margin-bottom:16px;font-size:clamp(2rem,5vw,3.2rem);">
+        Get a Free Dessert<br>
+        <span style="font-style:italic;color:rgba(255,255,255,0.78);font-size:0.82em;">On Your Next Visit</span>
+      </h2>
+
+      <p style="font-family:'Lora',serif;font-size:0.975rem;color:rgba(255,255,255,0.8);line-height:1.8;margin-bottom:32px;">
+        Join the Catch Club and we'll send you a free dessert voucher — your choice of NY Style Cheesecake, Cannoli, Lava Cake, and more. Plus get first access to seasonal specials and menu updates.
+      </p>
+
+      <!-- Form -->
+      <div id="catchclub-form">
+        <form onsubmit="handleSignup(event)" class="email-form" style="display:flex;max-width:440px;margin:0 auto;">
+          <input type="email" id="email-input" required placeholder="your@email.com" class="email-input" style="flex:1;">
+          <button type="submit" class="btn-navy">Claim It</button>
+        </form>
+        <p style="font-family:'Lora',serif;font-size:0.78rem;color:rgba(255,255,255,0.42);margin-top:12px;font-style:italic;">
+          No spam, ever. Unsubscribe anytime.
+        </p>
+      </div>
+
+      <!-- Success -->
+      <div id="catchclub-success" style="display:none;">
+        <div style="font-size:3rem;margin-bottom:14px;">🍰</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:#fff;margin-bottom:10px;">You're In!</h3>
+        <p style="font-family:'Lora',serif;font-size:0.975rem;color:rgba(255,255,255,0.85);line-height:1.75;">
+          Welcome to the Catch Club! Your free dessert voucher is on its way. Show it to the host on your next visit. See you soon!
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       TESTIMONIALS
+  ══════════════════════════════════════ -->
+  <section id="reviews" style="background:var(--cream);padding:96px 0;position:relative;overflow:hidden;">
+
+    <!-- Dot grid texture -->
+    <div style="position:absolute;inset:0;opacity:0.35;pointer-events:none;background-image:radial-gradient(circle at 2px 2px, rgba(30,61,110,0.1) 1px, transparent 0);background-size:28px 28px;"></div>
+    <!-- Fish skeleton watermarks -->
+    <div style="position:absolute;top:5%;left:2%;opacity:0.1;pointer-events:none;transform:rotate(-18deg);">
+      <img src="brand_assets/fish_skeleton.png" alt="" style="height:85px;">
+    </div>
+    <div style="position:absolute;bottom:6%;right:2%;opacity:0.1;pointer-events:none;transform:rotate(12deg) scaleX(-1);">
+      <img src="brand_assets/fish_skeleton.png" alt="" style="height:95px;">
+    </div>
+    <div style="position:absolute;top:50%;left:50%;opacity:0.05;pointer-events:none;transform:translate(-50%,-50%) rotate(5deg);">
+      <img src="brand_assets/fish_skeleton.png" alt="" style="height:200px;">
+    </div>
+
+    <div style="max-width:1120px;margin:0 auto;padding:0 24px;position:relative;">
+
+      <div class="fade-up" style="text-align:center;margin-bottom:52px;">
+        <div class="eyebrow" style="margin-bottom:12px;"><span>Google Reviews</span></div>
+        <h2 class="section-title" style="font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--navy);">
+          What Our <span style="font-style:italic;color:var(--rust);">Guests Say</span>
+        </h2>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;" class="reviews-grid">
+
+        <!-- Review 1 -->
+        <div class="review-card fade-up d1" style="padding:26px 26px 22px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+            <span style="color:#f4b400;font-size:1.05rem;letter-spacing:2px;">★★★★★</span>
+            <div style="display:flex;align-items:center;gap:5px;">
+              <svg viewBox="0 0 24 24" width="15" height="15">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+              </svg>
+              <span style="font-family:'Josefin Sans',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.1em;color:#9ca3af;text-transform:uppercase;">Google</span>
+            </div>
+          </div>
+          <blockquote style="font-family:'Lora',serif;font-size:0.905rem;line-height:1.78;color:#374151;font-style:italic;margin-bottom:18px;">
+            "The best seafood in the Hudson Valley, hands down. The lobster roll is incredible — fresh, generous, and perfectly dressed. This family-owned gem never disappoints. We drive 45 minutes just to eat here!"
+          </blockquote>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:36px;height:36px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span style="font-family:'Josefin Sans',sans-serif;font-size:0.85rem;font-weight:700;color:#fdf8ef;">M</span>
+            </div>
+            <div>
+              <div style="font-family:'Josefin Sans',sans-serif;font-size:0.78rem;font-weight:700;color:#1a2c40;letter-spacing:0.04em;">Maria S.</div>
+              <div style="font-family:'Lora',serif;font-size:0.7rem;color:#9ca3af;font-style:italic;">2 months ago</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="review-card fade-up d2" style="padding:26px 26px 22px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+            <span style="color:#f4b400;font-size:1.05rem;letter-spacing:2px;">★★★★★</span>
+            <div style="display:flex;align-items:center;gap:5px;">
+              <svg viewBox="0 0 24 24" width="15" height="15">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+              </svg>
+              <span style="font-family:'Josefin Sans',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.1em;color:#9ca3af;text-transform:uppercase;">Google</span>
+            </div>
+          </div>
+          <blockquote style="font-family:'Lora',serif;font-size:0.905rem;line-height:1.78;color:#374151;font-style:italic;margin-bottom:18px;">
+            "Been coming to Joe Willy's for years and it never gets old. The crab cakes are world-class, and the atmosphere feels like a real New England fish shack. Staff is always warm and welcoming."
+          </blockquote>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:36px;height:36px;border-radius:50%;background:var(--rust);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span style="font-family:'Josefin Sans',sans-serif;font-size:0.85rem;font-weight:700;color:#fff;">T</span>
+            </div>
+            <div>
+              <div style="font-family:'Josefin Sans',sans-serif;font-size:0.78rem;font-weight:700;color:#1a2c40;letter-spacing:0.04em;">Tom R.</div>
+              <div style="font-family:'Lora',serif;font-size:0.7rem;color:#9ca3af;font-style:italic;">1 month ago</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="review-card fade-up d3" style="padding:26px 26px 22px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+            <span style="color:#f4b400;font-size:1.05rem;letter-spacing:2px;">★★★★★</span>
+            <div style="display:flex;align-items:center;gap:5px;">
+              <svg viewBox="0 0 24 24" width="15" height="15">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+              </svg>
+              <span style="font-family:'Josefin Sans',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.1em;color:#9ca3af;text-transform:uppercase;">Google</span>
+            </div>
+          </div>
+          <blockquote style="font-family:'Lora',serif;font-size:0.905rem;line-height:1.78;color:#374151;font-style:italic;margin-bottom:18px;">
+            "Incredible food and even better vibes. The pan seared scallops were perfectly cooked — some of the best I've ever had. Great date night spot with a lively bar scene. Highly recommend!"
+          </blockquote>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:36px;height:36px;border-radius:50%;background:var(--sky);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span style="font-family:'Josefin Sans',sans-serif;font-size:0.85rem;font-weight:700;color:#fff;">L</span>
+            </div>
+            <div>
+              <div style="font-family:'Josefin Sans',sans-serif;font-size:0.78rem;font-weight:700;color:#1a2c40;letter-spacing:0.04em;">Lisa M.</div>
+              <div style="font-family:'Lora',serif;font-size:0.7rem;color:#9ca3af;font-style:italic;">3 weeks ago</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Link to Google -->
+      <div class="fade-up" style="text-align:center;margin-top:44px;">
+        <a href="https://www.google.com/maps/search/Joe+Willy%27s+Seafood+House+Wappingers+Falls" target="_blank"
+           style="font-family:'Josefin Sans',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy);text-decoration:none;border-bottom:2px solid rgba(30,61,110,0.25);padding-bottom:2px;transition:color .2s,border-color .2s;"
+           onmouseover="this.style.color='var(--rust)';this.style.borderColor='var(--rust)';"
+           onmouseout="this.style.color='var(--navy)';this.style.borderColor='rgba(30,61,110,0.25)';">
+          View All Reviews on Google &rarr;
+        </a>
+      </div>
+    </div>
+
+    <style>
+      @media (max-width: 900px) { .reviews-grid { grid-template-columns: 1fr !important; } }
+      @media (min-width: 600px) and (max-width: 900px) { .reviews-grid { grid-template-columns: 1fr 1fr !important; } }
+    </style>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       ABOUT (moved below reviews)
+  ══════════════════════════════════════ -->
+  <section id="about" style="background:var(--navy-deep);padding:96px 0;position:relative;overflow:hidden;">
+
+    <!-- Fish skeleton watermarks -->
+    <div style="position:absolute;top:5%;right:3%;opacity:0.06;pointer-events:none;transform:rotate(25deg);">
+      <img src="brand_assets/fish_skeleton.png" alt="" style="height:140px;">
+    </div>
+    <div style="position:absolute;bottom:8%;left:2%;opacity:0.05;pointer-events:none;transform:rotate(-10deg) scaleX(-1);">
+      <img src="brand_assets/fish_skeleton.png" alt="" style="height:110px;">
+    </div>
+    <div style="position:absolute;top:45%;left:45%;opacity:0.03;pointer-events:none;transform:rotate(8deg);">
+      <img src="brand_assets/fish_skeleton.png" alt="" style="height:180px;">
+    </div>
+
+    <div style="max-width:1120px;margin:0 auto;padding:0 24px;position:relative;z-index:1;">
+      <div style="display:grid;grid-template-columns:300px 1fr;gap:56px;align-items:center;" class="about-grid">
+
+        <!-- Image -->
+        <div class="fade-up about-image-wrap" style="position:relative;">
+          <div style="position:absolute;top:-12px;left:-12px;right:12px;bottom:12px;border:2px solid rgba(196,74,43,0.28);border-radius:2px;z-index:0;"></div>
+          <img src="brand_assets/owners.jpg" alt="The owners of Joe Willy's Seafood House"
+               style="width:100%;height:auto;display:block;border-radius:2px;position:relative;z-index:1;box-shadow:12px 12px 40px rgba(0,0,0,0.45);">
+        </div>
+
+        <!-- Text -->
+        <div class="fade-up d1">
+          <div class="eyebrow" style="justify-content:flex-start;margin-bottom:16px;">
+            <span style="color:rgba(196,74,43,0.9);">Our Story</span>
+          </div>
+          <h2 class="section-title" style="font-size:clamp(2rem,3.5vw,2.8rem);color:#fdf8ef;margin-bottom:24px;">
+            Family Owned &amp;<br>
+            <span style="font-style:italic;color:#f5e3bc;">Ocean Fresh</span>
+          </h2>
+          <p style="font-family:'Lora',serif;font-size:0.975rem;line-height:1.85;color:rgba(245,227,188,0.7);margin-bottom:18px;">
+            After decades of expertise in the wholesale seafood business, Joe Willy's became our dream. We opened our doors in 2008 at Westside Plaza in Wappingers Falls and have been a fixture in this community ever since — thanks entirely to your continued support.
+          </p>
+          <p style="font-family:'Lora',serif;font-size:0.975rem;line-height:1.85;color:rgba(245,227,188,0.7);margin-bottom:28px;">
+            We source the freshest catch daily. From our signature New England Lobster Roll to our fresh-shucked raw bar, every plate is made with the same care that has kept families coming back for over 17 years.
+          </p>
+
+          <!-- Food Network badge -->
+          <div style="margin-top:4px;">
+            <div style="font-family:'Josefin Sans',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(245,227,188,0.4);margin-bottom:14px;display:flex;align-items:center;gap:10px;">
+              <div style="height:1px;width:24px;background:rgba(245,227,188,0.2);"></div>
+              Featured On
+              <div style="height:1px;flex:1;background:rgba(245,227,188,0.2);"></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+              <img src="brand_assets/Food_Network_New_Logo.png" alt="Food Network" style="height:42px;width:auto;object-fit:contain;opacity:0.85;">
+              <div style="width:1px;height:32px;background:rgba(245,227,188,0.15);flex-shrink:0;"></div>
+              <img src="brand_assets/restaurant_impossible.png" alt="Restaurant: Impossible" style="height:36px;width:auto;object-fit:contain;opacity:0.85;">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <style>
+      @media (max-width: 767px) {
+        .about-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+        .about-image-wrap { max-width: 300px; }
+      }
+    </style>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer id="contact" style="background:var(--navy-deep);padding:72px 0 28px;">
+    <div style="max-width:1120px;margin:0 auto;padding:0 24px;">
+
+      <div style="display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:48px;margin-bottom:52px;" class="footer-grid">
+
+        <!-- Brand -->
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+            <img src="brand_assets/joe_willys_square_logo.png" alt="Joe Willy's" style="height:50px;width:50px;object-fit:contain;opacity:0.88;">
+            <div>
+              <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fdf8ef;">Joe Willy's</div>
+              <div style="font-family:'Josefin Sans',sans-serif;font-size:0.52rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(245,227,188,0.45);">Seafood House</div>
+            </div>
+          </div>
+          <p style="font-family:'Lora',serif;font-size:0.875rem;color:rgba(245,227,188,0.5);line-height:1.75;font-style:italic;margin-bottom:16px;">
+            "Enjoy the Catch!" &mdash; Fresh seafood, family owned &amp; operated, proudly serving the Hudson Valley since 2008.
+          </p>
+          <div style="height:2px;width:36px;background:var(--rust);margin-bottom:16px;"></div>
+          <div style="opacity:0.12;">
+            <img src="brand_assets/fish_skeleton.png" alt="" style="height:22px;object-fit:contain;">
+          </div>
+        </div>
+
+        <!-- Hours -->
+        <div>
+          <h4 style="font-family:'Josefin Sans',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--rust);margin-bottom:18px;">Hours of Operation</h4>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;justify-content:space-between;gap:12px;">
+              <span style="font-family:'Lora',serif;font-size:0.86rem;color:rgba(245,227,188,0.5);">Tue – Sat</span>
+              <span style="font-family:'Lora',serif;font-size:0.86rem;color:#fdf8ef;font-weight:500;">4:00 – 9:00 PM</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;gap:12px;">
+              <span style="font-family:'Lora',serif;font-size:0.86rem;color:rgba(245,227,188,0.5);">Sunday</span>
+              <span style="font-family:'Lora',serif;font-size:0.86rem;color:#fdf8ef;font-weight:500;">4:00 – 8:30 PM</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;gap:12px;">
+              <span style="font-family:'Lora',serif;font-size:0.86rem;color:rgba(245,227,188,0.5);">Monday</span>
+              <span style="font-family:'Lora',serif;font-size:0.86rem;color:rgba(245,227,188,0.35);font-style:italic;">Gone Fishin'</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 style="font-family:'Josefin Sans',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--rust);margin-bottom:18px;">Find Us</h4>
+          <div style="display:flex;flex-direction:column;gap:16px;">
+
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5ab4d4" stroke-width="1.5" style="flex-shrink:0;margin-top:3px;">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+              <div>
+                <div style="font-family:'Lora',serif;font-size:0.86rem;color:#fdf8ef;line-height:1.6;">Westside Plaza<br>1817 South Road (Rt. 9)<br>Wappingers Falls, NY 12590</div>
+                <a href="https://maps.google.com/?q=1817+South+Road+Wappingers+Falls+NY" target="_blank"
+                   style="font-family:'Josefin Sans',sans-serif;font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:#5ab4d4;text-decoration:none;margin-top:6px;display:inline-block;border-bottom:1px solid rgba(90,180,212,0.3);">
+                  Get Directions &rarr;
+                </a>
+              </div>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:10px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5ab4d4" stroke-width="1.5" style="flex-shrink:0;">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 012 1.1 2 2 0 014 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 7.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+              </svg>
+              <a href="tel:8457650234" style="font-family:'Lora',serif;font-size:0.86rem;color:#fdf8ef;text-decoration:none;">(845) 765-0234</a>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:10px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5ab4d4" stroke-width="1.5" style="flex-shrink:0;">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+              </svg>
+              <a href="https://www.facebook.com/JoeWillysSeafood" target="_blank" style="font-family:'Lora',serif;font-size:0.86rem;color:#fdf8ef;text-decoration:none;opacity:0.8;">Facebook</a>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:10px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5ab4d4" stroke-width="1.5" style="flex-shrink:0;">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+              <a href="https://www.instagram.com/joewillysseafood" target="_blank" style="font-family:'Lora',serif;font-size:0.86rem;color:#fdf8ef;text-decoration:none;opacity:0.8;">@joewillysseafood</a>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:10px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5ab4d4" stroke-width="1.5" style="flex-shrink:0;">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+              </svg>
+              <a href="mailto:joewillysrestaurant@yahoo.com" style="font-family:'Lora',serif;font-size:0.86rem;color:#fdf8ef;text-decoration:none;opacity:0.8;">joewillysrestaurant@yahoo.com</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div style="border-top:1px solid rgba(245,227,188,0.07);padding-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;">
+        <p style="font-family:'Josefin Sans',sans-serif;font-size:0.62rem;letter-spacing:0.1em;color:rgba(245,227,188,0.28);">
+          &copy; 2025 Joe Willy's Seafood House. All rights reserved.
+        </p>
+        <div style="display:flex;gap:24px;flex-wrap:wrap;">
+          <a href="#menu"    class="footer-link">Menu</a>
+          <a href="#about"   class="footer-link">About</a>
+          <a href="#catchclub" class="footer-link">Catch Club</a>
+          <a href="brand_assets/joe_willys_menu.pdf" target="_blank" class="footer-link">Full Menu PDF</a>
+        </div>
+      </div>
+
+    </div>
+
+    <style>
+      @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr !important; } }
+      @media (max-width: 560px) { .footer-grid { grid-template-columns: 1fr !important; } }
+    </style>
+  </footer>
+
+
+  <!-- ══════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════ -->
+  <script>
+    // Nav scroll
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    });
+
+    // Email signup
+    function handleSignup(e) {
+      e.preventDefault();
+      document.getElementById('catchclub-form').style.display = 'none';
+      document.getElementById('catchclub-success').style.display = 'block';
+    }
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // IntersectionObserver fade-up
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+  </script>
+
+</body>
+</html>
