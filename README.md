@@ -1,8 +1,10 @@
 # Joe Willy's Seafood House
 
-Single-page website for Joe Willy's Seafood House — a family-owned seafood
-restaurant in Wappingers Falls, NY (Westside Plaza, Rt. 9). Featured on
-Food Network's *Restaurant: Impossible*.
+**[Live Site →](https://joewillysfishshack.netlify.app/)**
+
+![Joe Willy's Seafood House](brand_assets/social_preview.jpg)
+
+Single-page website for Joe Willy's Seafood House — a family-owned seafood restaurant in Wappingers Falls, NY (Westside Plaza, Rt. 9). Featured on Food Network's *Restaurant: Impossible*.
 
 ## Stack
 
